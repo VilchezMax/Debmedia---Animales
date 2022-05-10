@@ -3,54 +3,31 @@ package Modelos;
 import Interfaces.Carnivoro;
 
 public class Gato extends Animales implements Carnivoro {
-    //Atributos
-    private String sonido;
-    private boolean hambre;
 
     //Constructores
-    public Gato(){
-        this.sonido = "miau miau";
-        this.hambre = true;
-    }
+    public Gato(String sonido, boolean hambre, String colorDePelo, String nombre, int edad) {
+        super(sonido, hambre, colorDePelo, nombre, edad);
 
-    public Gato(String sonido, boolean hambre) {
-        this.sonido = sonido;
-        this.hambre = hambre;
-    }
-
-    //Setters & Getters
-
-    public String getSonido() {
-        return sonido;
-    }
-
-    public void setSonido(String sonido) {
-        this.sonido = sonido;
-    }
-
-    public boolean isHambre() {
-        return hambre;
-    }
-
-    public void setHambre(boolean hambre) {
-        this.hambre = hambre;
     }
 
     //Metodos
     @Override
     public void hablar() {
-        System.out.println(this.sonido);
+        System.out.println(this.getSonido());
     }
 
     @Override
     public void comerCarne() {
-        this.hambre = false;
+        setHambre(false);
     }
     @Override
     public String toString() {
-        return "Gato: " + "\n" +
-                "Hace " + sonido + "\n" +
-                "Tiene hambre? " + hambre;
+        return "Gato " + "\n" +
+                "Nombre: " + this.getNombre() + "\n" +
+                "Hace " + this.getSonido() + "\n" +
+                "Edad: " + this.getEdad() + "\n" +
+                "Color de pelo: " + this.getColorDePelo() + "\n" +
+                "Tiene hambre? " + this.isHambre() + "\n";
     }
 
 }
